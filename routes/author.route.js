@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Author = require('../models/author.model');
 
+//All authors route
 router.get('/', async (req, res) => {
     let searchOptions = {};
     let name = '';
@@ -23,10 +24,12 @@ router.get('/', async (req, res) => {
     }
 })
 
+//New author form route
 router.get('/new', (req, res) => {
     res.render( 'authors/new' , {author: new Author()} );
 })
 
+//Create a new author route
 router.post('/', async (req, res) => {
     const author = new Author({
         name: req.body.name

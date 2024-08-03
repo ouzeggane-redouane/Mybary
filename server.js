@@ -24,9 +24,11 @@ db.once('open', ()=>console.log('Connected to Mongo-DB'))
 
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/author.route')
+const bookRouter = require('./routes/book.route')
 
 app.use('/', indexRouter)
 app.use('/authors', authorRouter)
+app.use('/books', bookRouter)
 
 const PORT = process.env.PORT || 3050;
 app.listen(PORT, ()=>{
